@@ -1,0 +1,13 @@
+{% block form %}
+    {{ form_row(form.name) }}
+    <div>
+        <ul>
+            {% for r in form.races %}
+                <li>
+                    {{ form_widget(r) }}
+                    {{ form_label(r) }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

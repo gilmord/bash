@@ -1,0 +1,3 @@
+bash_vote_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BashVoteBundle:Default:index }

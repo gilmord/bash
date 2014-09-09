@@ -1,0 +1,25 @@
+parameters:
+#    bash_nodes.example.class: Bash\NodesBundle\Example
+
+services:
+ blogger.symblog.admin.blog:
+        class: Bash\NodesBundle\Admin\QuoteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Quote, label: Quote }
+        arguments: [null, Bash\NodesBundle\Entity\Quote, BashNodesBundle:QuoteAdmin]
+
+ blogger.symblog.admin.comment:
+        class: Bash\NodesBundle\Admin\CommentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Quote, label: Comments }
+        arguments: [null, Bash\NodesBundle\Entity\Comment,  BashNodesBundle:CommentAdmin]
+ blogger.symblog.admin.code:
+        class: Bash\NodesBundle\Admin\CodeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Govnokod, label: Govnokod }
+        arguments: [null, Bash\NodesBundle\Entity\Code, BashNodesBundle:CodeAdmin]
+ blogger.symblog.admin.codecomment:
+        class: Bash\NodesBundle\Admin\CodeCommentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Govnokod, label: Comments }
+        arguments: [null, Bash\NodesBundle\Entity\CodeComment,  BashNodesBundle:CodeCommentAdmin]

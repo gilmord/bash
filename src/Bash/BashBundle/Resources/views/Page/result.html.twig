@@ -1,0 +1,88 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Votes result
+{% endblock %}
+
+{% block h1 %}
+
+{% endblock %}
+
+
+
+{% block menu %}
+    <ul class="menu">
+        <li class="first leaf rss"><a href="{{ path('BashBashBundle_rss') }}" title="">rss</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_recent', { 'id': 1 }) }}">recent</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_best') }}">best</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_random') }}">random</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_govnokod') }}">govnokod</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addquote') }}" class="active">add quote</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addcode') }}">add code</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_myquotes') }}">my quotes</a></li>
+        <li class="last leaf"><a href="{{ path('fos_user_security_logout') }}">log out</a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="tabs">
+
+        <h2 class="element-invisible"></h2>
+        <ul class="tabs primary">
+            <li >
+                <a  href="{{ path('BashBashBundle_post', { 'id': id }) }}">
+
+                    View
+
+
+                </a>
+            </li>
+            <li>
+                <a href="{{ path('BashBashBundle_edit', { 'id': id }) }}">
+
+                    Edit
+                          <span class="element-invisible">
+
+                    (active tab)
+
+                </span>
+
+                </a>
+            </li>
+            <li>
+                <a  href="{{ path('BashBashBundle_dell', { 'id': id }) }}">
+
+                    Delete
+
+                </a>
+            </li>
+            <li  class="active" >
+                <a  class="active"  href="{{ path('BashBashBundle_result', { 'id': id }) }}">
+
+                    Voting results
+
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    Votes for quote {{ id }}
+
+
+    <table  style="width:500px" >
+        <td><h1>User</h1></td>
+        <td><h1>Value</h1></td>
+        <td><h1>Date</h1></td>
+    {% for votes in vote %}
+        <tr>
+            <td><h1>{{ votes.voter }}</h1></td>
+            <td>{{ votes.value }}</td>
+            <td>{{ votes.created|date('Y-m-d H:i') }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,227 @@
+<?php
+// src/Blogger/BlogBundle/Entity/Blog.php
+
+namespace Bash\NodesBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
+use Symfony\Component\Validator\Constraints as Assert;
+
+
+/**
+ * @FileStore\Uploadable
+ * @ORM\Entity(repositoryClass="Bash\NodesBundle\Entity\Repository\TestRepository")
+ * @ORM\Table(name="test")
+ * @ORM\HasLifecycleCallbacks
+ */
+class Test
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $subject;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $author;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $date;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="id")
+     */
+    protected $comments = array();
+
+    public function addComment(Comment $comment)
+    {
+        $this->comments[] = $comment;
+    }
+
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+
+
+    /**
+     * @ORM\Column(type="array")
+     * @Assert\Image( maxSize="20M")
+     * @FileStore\UploadableField(mapping="quote")
+     **/
+    protected $photos;
+
+    /**
+     * Set photo
+     *
+     * @param array $photos
+     * @return Quote
+     */
+    public function setPhotos($photos)
+    {
+        $this->photos = $photos;
+
+        return $this;
+    }
+
+    /**
+     * Get photos
+     *
+     * @return array
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+
+//    /**
+//     * @ORM\OneToMany(targetEntity="Photo", mappedBy="blog_id")
+//     */
+//    protected $photos = array();
+//
+//    public function addPhoto(Photo $photo)
+//    {
+//        $this->photos[] = $photo;
+//    }
+//
+//    public function getPhotos()
+//    {
+//        return $this->photos;
+//    }
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set subject
+     *
+     * @param string $subject
+     * @return Quote
+     */
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+
+        return $this;
+    }
+
+    /**
+     * Get subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     * @return Quote
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $date
+     * @return Quote
+     */
+    public function setDate($date)
+    {
+
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get data
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+        $this->setDate(new \DateTime());
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Bash\NodesBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Bash\NodesBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
+    {
+        $metadata->addPropertyConstraint(
+          'subject',
+          new NotBlank(array(
+            'message' => 'You must enter subject'
+          ))
+        );
+
+    }
+
+    public function __toString()
+    {
+        $string = (string) $this->getId();
+
+        return $string;
+    }
+
+
+
+
+}

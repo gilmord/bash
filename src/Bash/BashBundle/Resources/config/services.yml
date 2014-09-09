@@ -1,0 +1,8 @@
+parameters:
+#    bash_bash.example.class: Bash\BashBundle\Example
+services:
+ blogger.symblog.admin.user:
+        class: Bash\BashBundle\Admin\UserAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Users, label: User }
+        arguments: [null, Bash\BashBundle\Entity\User,  BashBashBundle:UserAdmin]

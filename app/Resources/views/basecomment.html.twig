@@ -1,0 +1,424 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+        "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="uk" version="XHTML+RDFa 1.0" dir="ltr">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript">window.NREUM || (NREUM = {}), __nr_require = function (t, n, e) {
+            function r(e) {
+                if (!n[e]) {
+                    var o = n[e] = {exports: {}};
+                    t[e][0].call(o.exports, function (n) {
+                        var o = t[e][1][n];
+                        return r(o ? o : n)
+                    }, o, o.exports)
+                }
+                return n[e].exports
+            }
+
+            if ("function" == typeof __nr_require)return __nr_require;
+            for (var o = 0; o < e.length; o++)r(e[o]);
+            return r
+        }({D5DuLP: [function (t, n) {
+            function e(t, n) {
+                var e = r[t];
+                return e ? e.apply(this, n) : (o[t] || (o[t] = []), void o[t].push(n))
+            }
+
+            var r = {}, o = {};
+            n.exports = e, e.queues = o, e.handlers = r
+        }, {}], handle: [function (t, n) {
+            n.exports = t("D5DuLP")
+        }, {}], G9z0Bl: [function (t, n) {
+            function e() {
+                var t = l.info = NREUM.info;
+                if (t && t.agent && t.licenseKey && t.applicationID && p && p.body) {
+                    l.proto = "https" === f.split(":")[0] || t.sslForHttp ? "https://" : "http://", i("mark", ["onload", a()]);
+                    var n = p.createElement("script");
+                    n.src = l.proto + t.agent, p.body.appendChild(n)
+                }
+            }
+
+            function r() {
+                "complete" === p.readyState && o()
+            }
+
+            function o() {
+                i("mark", ["domContent", a()])
+            }
+
+            function a() {
+                return(new Date).getTime()
+            }
+
+            var i = t("handle"), u = window, p = u.document, s = "addEventListener", c = "attachEvent", f = ("" + location).split("?")[0], l = n.exports = {offset: a(), origin: f, features: []};
+            p[s] ? (p[s]("DOMContentLoaded", o, !1), u[s]("load", e, !1)) : (p[c]("onreadystatechange", r), u[c]("onload", e)), i("mark", ["firstbyte", a()])
+        }, {handle: "D5DuLP"}], loader: [function (t, n) {
+            n.exports = t("G9z0Bl")
+        }, {}]}, {}, ["G9z0Bl"]);</script>
+    <link rel="shortcut icon" href="http://bash.drupalcompany.com/sites/default/files/favicon.ico"
+          type="image/vnd.microsoft.icon"/>
+    <meta name="Generator" content="Drupal 7 (http://drupal.org)"/>
+    <title>{% block title %} {% endblock %}</title>
+
+    <style type="text/css" media="all">@import url("http://bash.drupalcompany.com/modules/comment/comment.css?n42cif");
+        @import url("http://bash.drupalcompany.com/modules/field/theme/field.css?n42cif");
+        @import url("http://bash.drupalcompany.com/modules/node/node.css?n42cif");
+        @import url("http://bash.drupalcompany.com/modules/user/user.css?n42cif");
+        @import url("http://bash.drupalcompany.com/sites/all/modules/views/css/views.css?n42cif");</style>
+    <style type="text/css"
+           media="all">@import url("http://bash.drupalcompany.com/sites/all/modules/colorbox/styles/default/colorbox_default_style.css?n42cif");
+        @import url("http://bash.drupalcompany.com/sites/all/modules/ctools/css/ctools.css?n42cif");
+        @import url("http://bash.drupalcompany.com/sites/all/modules/rate/rate.css?n42cif");
+        @import url("http://bash.drupalcompany.com/sites/all/modules/rate/templates/number-up-down/number-up-down.css?n42cif");</style>
+
+
+    <style type="text/css" media="all">
+        @import url("http://bash.drupalcompany.com/modules/system/system.base.css?n42cif");
+        @import url("http://bash.drupalcompany.com/modules/system/system.menus.css?n42cif");
+        @import url("http://bash.drupalcompany.com/modules/system/system.messages.css?n42cif");
+        @import url("http://bash.drupalcompany.com/modules/system/system.theme.css?n42cif");</style>
+
+    <style type="text/css" media="all">
+        @import url("http://bash.drupalcompany.com/sites/all/themes/bash/styles/framework/reset.css?n42cif");
+        @import url("http://bash.drupalcompany.com/sites/all/themes/bash/styles/framework/960.css?n42cif");
+    </style>
+
+
+    <script type="text/javascript" src="http://bash.drupalcompany.com/misc/jquery.js?v=1.4.4"></script>
+    <script type="text/javascript" src="http://bash.drupalcompany.com/misc/jquery.once.js?v=1.2"></script>
+    <script type="text/javascript" src="http://bash.drupalcompany.com/misc/drupal.js?n42cif"></script>
+    <script type="text/javascript" src="http://bash.drupalcompany.com/misc/ajax.js?v=7.21"></script>
+    <script type="text/javascript"
+            src="http://bash.drupalcompany.com/sites/all/libraries/colorbox/colorbox/jquery.colorbox-min.js?n42cif"></script>
+    <script type="text/javascript"
+            src="http://bash.drupalcompany.com/sites/all/modules/colorbox/js/colorbox.js?n42cif"></script>
+    <script type="text/javascript"
+            src="http://bash.drupalcompany.com/sites/all/modules/colorbox/styles/default/colorbox_default_style.js?n42cif"></script>
+    <script type="text/javascript">
+        <!--//-->
+        <![CDATA[//><!--
+        var _gaq = _gaq || [];
+        _gaq.push(['b._setAccount', 'UA-1222507-50']);
+        _gaq.push(['b._setDomainName', 'auto']);
+        _gaq.push(['b._setAllowLinker', true]);
+        _gaq.push(['b._trackPageview']);
+        _gaq.push(['b._trackPageLoadTime']);
+        if (typeof microtime_ga !== "undefined") {
+            _gaq.push(['b._trackEvent', 'Response time (ms)', 'url_ga', 'bash.drupalcompany.com', microtime_ga]);
+        }
+        if (typeof memory_get_peak_usage_ga !== "undefined") {
+            _gaq.push(['b._trackEvent', 'Peak memory usage (KB)', 'memory_ga', 'bash.drupalcompany.com', memory_get_peak_usage_ga]);
+        }
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+        //--><!
+        ]]>
+    </script>
+    <script type="text/javascript" src="http://bash.drupalcompany.com/misc/progress.js?v=7.21"></script>
+    <script type="text/javascript" src="http://bash.drupalcompany.com/sites/all/themes/bash/js/bash.js?n42cif"></script>
+    <script type="text/javascript">
+        <!--//-->
+        <![CDATA[//><!--
+        jQuery.extend(Drupal.settings, {"basePath": "\/", "pathPrefix": "", "ajaxPageState": {"theme": "bash", "theme_token": "fkGr4wUPn6xRdjRU5a_6EY944iTNYwsf_dJyIKXufFQ", "js": {"sites\/all\/modules\/rate\/rate.js": 1, "misc\/jquery.js": 1, "misc\/jquery.once.js": 1, "misc\/drupal.js": 1, "misc\/ajax.js": 1, "sites\/all\/libraries\/colorbox\/colorbox\/jquery.colorbox-min.js": 1, "sites\/all\/modules\/colorbox\/js\/colorbox.js": 1, "sites\/all\/modules\/colorbox\/styles\/default\/colorbox_default_style.js": 1, "0": 1, "misc\/progress.js": 1, "sites\/all\/themes\/bash\/js\/bash.js": 1}, "css": {"modules\/system\/system.base.css": 1, "modules\/system\/system.menus.css": 1, "modules\/system\/system.messages.css": 1, "modules\/system\/system.theme.css": 1, "modules\/comment\/comment.css": 1, "modules\/field\/theme\/field.css": 1, "modules\/node\/node.css": 1, "modules\/user\/user.css": 1, "sites\/all\/modules\/views\/css\/views.css": 1, "sites\/all\/modules\/colorbox\/styles\/default\/colorbox_default_style.css": 1, "sites\/all\/modules\/ctools\/css\/ctools.css": 1, "sites\/all\/modules\/rate\/rate.css": 1, "sites\/all\/modules\/rate\/templates\/number-up-down\/number-up-down.css": 1, "sites\/all\/themes\/bash\/styles\/framework\/reset.css": 1, "sites\/all\/themes\/bash\/styles\/framework\/960.css": 1, "sites\/all\/themes\/bash\/styles\/styles.css": 1}}, "colorbox": {"opacity": "0.85", "current": "{current} of {total}", "previous": "\u00ab Prev", "next": "Next \u00bb", "close": "Close", "maxWidth": "100%", "maxHeight": "100%", "fixed": true, "__drupal_alter_by_ref": ["default"]}, "rate": {"basePath": "\/rate\/vote\/js", "destination": "quotes"}});
+        //--><!
+        ]]>
+    </script>
+</head>
+
+
+<body class="html not-front logged-in no-sidebars page-node page-node- page-node-167 node-type-quote show-grid">
+<div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+</div>
+<div id="site-header" class="clearfix">
+    <div class="container-16">
+        <div id="branding" class="grid-4 clearfix">
+            <span id="logo" class="grid-1 alpha"><a href="/bash/" rel="home" title="Home"><img
+                            src="http://localhost/bash/sites/default/files/logo_bash_0.png" alt="Home"
+                            title="Home"/></a></span>
+        </div>
+        <div id="header-region" class="grid-12 region clearfix">
+            <div class="region region-header">
+                <div id="block-system-main-menu" class="block block-system contextual-links-region block-menu">
+
+                    <div class="contextual-links-wrapper">
+                        <ul class="contextual-links">
+                            <li class="menu-list first"><a
+                                        href="/bash/admin/structure/menu/manage/main-menu/list?destination=node/167">List
+                                    links</a></li>
+                            <li class="menu-edit"><a
+                                        href="/bash/admin/structure/menu/manage/main-menu/edit?destination=node/167">Edit
+                                    menu</a></li>
+                            <li class="block-configure last"><a
+                                        href="/bash/admin/structure/block/manage/system/main-menu/configure?destination=node/167">Configure
+                                    block</a></li>
+                        </ul>
+                    </div>
+                    <div class="content">
+                        {% block menu %}
+                            menu
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="page" class="container-16 clearfix">
+    <div id="site-subheader" class="prefix-1 suffix-1 clearfix">
+    </div>
+
+
+    <div id="main" class="column">
+
+        <div class="tabs"><h2 class="element-invisible">Primary tabs</h2>
+            <ul class="tabs primary">
+                <li class="active"><a href="/bash/node/167" class="active">View<span class="element-invisible">(active tab)</span></a>
+                </li>
+                <li><a href="/bash/node/167/edit">Edit</a></li>
+                <li><a href="/bash/node/167/revisions">Revisions</a></li>
+                <li><a href="/bash/node/167/rating">Voting results</a></li>
+            </ul>
+        </div>
+
+        <div id="main-content" class="region clearfix">
+            <div class="region region-content">
+                <div id="block-system-main" class="block block-system">
+
+
+                    <div class="content">
+                        <div id="node-167" class="node node-quote clearfix">
+
+
+                            <div class="submitted">
+                                Submitted by <a href="/bash/user/19" title="View user profile."
+                                                class="username">bohart</a> on Thu, 03/06/2014 - 16:59
+                            </div>
+
+                            <div class="content">
+                                <div class="rate-widget-1 rate-widget clear-block rate-average rate-widget-number_up_down rate--89pc3PPeHxJx4JhNX94jyst9NITupunZlB70bvqrY4"
+                                     id="rate-node-167-1-1">
+                                    <a class="rate-button rate-number-up-down-btn-up" id="rate-button-3" rel="nofollow"
+                                       href="/bash/node/167?rate=ubhCpd1vPQ6brMvdsSdzqacR0qGDu8PDCHuXJUOgWU4" title="+">+</a>
+
+                                    <div class="rate-number-up-down-rating positive">19</div>
+
+                                    <a class="rate-button rate-number-up-down-btn-down rate-voted" id="rate-button-4"
+                                       rel="nofollow"
+                                       href="/bash/node/167?rate=ZETjCSlKgFsUM0r7ptZ6BmxJrOBBDQjknLwtKfoZ-8w" title="-">-</a>
+
+                                    <div class="rate-info">You voted '-1'.</div>
+                                </div>
+                                <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even"><p>Активний девелопмент сайту міністерства
+                                                юстиції.</p>
+
+                                            <p>Взято 1% логів за тиждень, решта не пройде цензуру баша)</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field field-name-field-image field-type-image field-label-hidden">
+                                    <div class="field-items">
+                                        <div class="field-item even"><a
+                                                    href="http://localhost/bash/system/files/minjust.png" title=""
+                                                    class="colorbox" rel="gallery-167"><img
+                                                        src="http://localhost/bash/system/files/styles/medium/private/minjust.png?itok=lzrMJN5C"
+                                                        width="220" height="112" alt="" title=""/></a></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ul class="links inline">
+                                <li class="comment-add first last active"><a href="/bash/node/167#comment-form"
+                                                                             title="Share your thoughts and opinions related to this posting."
+                                                                             class="active">Add new comment</a></li>
+                            </ul>
+                            <div id="comments" class="comment-wrapper">
+                                <h2 class="title">Comments</h2>
+
+                                <a id="comment-87"></a>
+
+                                <div class="comment clearfix">
+
+                                    <div class="submitted">
+                                        <a href="/bash/comment/87#comment-87" class="permalink"
+                                           rel="bookmark">Permalink</a> Submitted by <a href="/bash/user/98"
+                                                                                        title="View user profile."
+                                                                                        class="username">v.bondarchuk</a>
+                                        on Fri, 03/07/2014 - 15:21
+                                    </div>
+
+                                    <div class="content">
+                                        <div class="field field-name-comment-body field-type-text-long field-label-hidden">
+                                            <div class="field-items">
+                                                <div class="field-item even"><p>прсто муля уйобок, без матів до нього не
+                                                        доходить же ш)</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="links inline">
+                                        <li class="comment-delete first"><a href="/bash/comment/87/delete">delete</a>
+                                        </li>
+                                        <li class="comment-edit"><a href="/bash/comment/87/edit">edit</a></li>
+                                        <li class="comment-reply last"><a href="/bash/comment/reply/167/87">reply</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <a id="comment-88"></a>
+
+                                <div class="comment clearfix">
+
+                                    <div class="submitted">
+                                        <a href="/bash/comment/88#comment-88" class="permalink"
+                                           rel="bookmark">Permalink</a> Submitted by <a href="/bash/user/17"
+                                                                                        title="View user profile."
+                                                                                        class="username">mula</a> on
+                                        Sat, 03/08/2014 - 16:45
+                                    </div>
+
+                                    <div class="content">
+                                        <div class="field field-name-comment-body field-type-text-long field-label-hidden">
+                                            <div class="field-items">
+                                                <div class="field-item even"><p>рижий хуй</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <ul class="links inline">
+                                        <li class="comment-delete first"><a href="/bash/comment/88/delete">delete</a>
+                                        </li>
+                                        <li class="comment-edit"><a href="/bash/comment/88/edit">edit</a></li>
+                                        <li class="comment-reply last"><a href="/bash/comment/reply/167/88">reply</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="indented"><a id="comment-89"></a>
+
+                                    <div class="comment clearfix">
+
+                                        <div class="submitted">
+                                            <a href="/bash/comment/89#comment-89" class="permalink" rel="bookmark">Permalink</a>
+                                            Submitted by <a href="/bash/user/98" title="View user profile."
+                                                            class="username">v.bondarchuk</a> on Mon, 03/10/2014 - 11:26
+                                        </div>
+
+                                        <div class="content">
+                                            <div class="field field-name-comment-body field-type-text-long field-label-hidden">
+                                                <div class="field-items">
+                                                    <div class="field-item even"><p>скрути писка</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <ul class="links inline">
+                                            <li class="comment-delete first"><a
+                                                        href="/bash/comment/89/delete">delete</a></li>
+                                            <li class="comment-edit"><a href="/bash/comment/89/edit">edit</a></li>
+                                            <li class="comment-reply last"><a
+                                                        href="/bash/comment/reply/167/89">reply</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <h2 class="title comment-form">Add new comment</h2>
+
+                                <form class="comment-form" action="/bash/comment/reply/167" method="post"
+                                      id="comment-form" accept-charset="UTF-8">
+                                    <div>
+                                        <div id="edit-author--2" class="form-item form-type-item">
+                                            <label for="edit-author--2">Your name </label>
+                                            <a href="/bash/user/1" title="View user profile." class="username">bash</a>
+                                        </div>
+                                        <div class="field-type-text-long field-name-comment-body field-widget-text-textarea form-wrapper"
+                                             id="edit-comment-body">
+                                            <div id="comment-body-add-more-wrapper">
+                                                <div class="text-format-wrapper">
+                                                    <div class="form-item form-type-textarea form-item-comment-body-und-0-value">
+                                                        <label for="edit-comment-body-und-0-value">Comment <span
+                                                                    class="form-required"
+                                                                    title="This field is required.">*</span></label>
+
+                                                        <div class="form-textarea-wrapper"><textarea
+                                                                    class="text-full form-textarea required"
+                                                                    id="edit-comment-body-und-0-value"
+                                                                    name="comment_body[und][0][value]" cols="60"
+                                                                    rows="5"></textarea></div>
+                                                    </div>
+                                                    <fieldset class="filter-wrapper form-wrapper"
+                                                              id="edit-comment-body-und-0-format">
+                                                        <div class="fieldset-wrapper">
+                                                            <div class="filter-help form-wrapper"
+                                                                 id="edit-comment-body-und-0-format-help"></div>
+                                                            <div class="form-item form-type-select form-item-comment-body-und-0-format">
+                                                                <label for="edit-comment-body-und-0-format--2">Text
+                                                                    format </label>
+                                                                <select class="filter-list wysiwyg form-select"
+                                                                        id="edit-comment-body-und-0-format--2"
+                                                                        name="comment_body[und][0][format]">
+                                                                    <option value="filtered_html" selected="selected">
+                                                                        Filtered HTML
+                                                                    </option>
+                                                                    <option value="full_html">Full HTML</option>
+                                                                    <option value="plain_text">Plain text</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="filter-guidelines form-wrapper"
+                                                                 id="edit-comment-body-und-0-format-guidelines">
+                                                                <div class="filter-guidelines-item filter-guidelines-filtered_html">
+                                                                    <h3>Filtered HTML</h3></div>
+                                                                <div class="filter-guidelines-item filter-guidelines-full_html">
+                                                                    <h3>Full HTML</h3></div>
+                                                                <div class="filter-guidelines-item filter-guidelines-plain_text">
+                                                                    <h3>Plain text</h3></div>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" name="form_build_id"
+                                               value="form-zO33IW9svafPoSS8uji8KglY5uJFev4_BpkBhOUdyKU"/>
+                                        <input type="hidden" name="form_token"
+                                               value="0lGWbLlWWa2y33xKmbKcvciH8wRolSXBaSNacowYMq0"/>
+                                        <input type="hidden" name="form_id" value="comment_node_quote_form"/>
+
+                                        <div class="form-actions form-wrapper" id="edit-actions"><input type="submit"
+                                                                                                        id="edit-submit"
+                                                                                                        name="op"
+                                                                                                        value="Save"
+                                                                                                        class="form-submit"/>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="footer" class="prefix-1 suffix-1">
+    </div>
+
+</div>
+<script type="text/javascript" src="http://localhost/bash/sites/all/modules/rate/rate.js?n9fb5c"></script>
+<script type="text/javascript" src="http://localhost/bash/sites/all/modules/wysiwyg/wysiwyg.js?n9fb5c"></script>
+</body>
+</html>

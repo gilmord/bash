@@ -1,0 +1,109 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Randon
+{% endblock %}
+
+{% block h1 %}
+    Random
+{% endblock %}
+
+
+{% block menu %}
+    <ul class="menu">
+        <li class="first leaf rss"><a href="{{ path('BashBashBundle_rss') }}" title="">rss</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_recent', { 'id': 1 }) }}">recent</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_best') }}">best</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_random') }}" class="active" >random</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_govnokod') }}">govnokod</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addquote') }}" >add quote</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addcode') }}">add code</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_myquotes') }}">my quotes</a></li>
+        <li class="last leaf"><a href="{{ path('fos_user_security_logout') }}">log out</a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block content %}
+    {% for quote in quotes %}
+        <div class="views-row views-row-1 views-row-odd views-row-first">
+
+            <div class="views-field views-field-value">
+                <div class="field-content">
+                    <div id="rate-node-179-1-5" class="rate-widget-1 rate-widget clear-block rate-average rate-widg…e-9_phLrr7NVXFMouZITX0t-0JxNJMS1Jz_4IckdCuUy4 rate-processed">
+                        <a href="{{ path('BashBashBundle_vote', { 'quote': quote.id, 'value': 1, 'from': 'random' }) }}"><span id="vote" class="rate-button rate-number-up-down-btn-up">+</span></a>
+                        <div class="rate-number-up-down-rating neutral">
+
+
+                            {{ rate[quote.id] }}
+
+                        </div>
+                        <a href="{{ path('BashBashBundle_vote', { 'quote': quote.id, 'value': -1, 'from': 'random' }) }}"><span id="vote" class="rate-button rate-number-up-down-btn-up">-</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="views-field views-field-name">
+        <span class="field-content">
+
+            <a href="{{ path('BashBashBundle_aquotes', { 'author': quote.author }) }}"> {{ quote.author }}</a>
+        </span>
+            </div>
+            <div class="views-field views-field-nid-1">
+                <a class="use-ajax bojan-link-179 bojans-count-0 ajax-processed" title="People bojaned: 0" href="/bash/bojan/179/nojs/set">
+
+                    [:|||:]
+
+                </a>
+            </div>
+            <div class="views-field views-field-comment-count">
+        <span class="views-label views-label-comment-count">
+
+            Comments:
+            <a href="{{ path('BashBashBundle_post', { 'id': quote.id }) }}">
+                {{ total[quote.id] }}
+            </a>
+
+        </span>
+        <span class="field-content">
+            <a href="/bash/node/179"></a>
+        </span>
+            </div>
+            <div class="views-field views-field-created">
+        <span class="field-content">
+            {%  if   "now"|date('Y-m-d') ==  quote.date|date('Y-m-d') %}
+                {{ quote.date|date('Y-m-d H:i') }} <div id="hot" ><strong>hot!</strong></div>
+            {% else %}
+                {{ quote.date|date('Y-m-d H:i') }}
+            {% endif %}
+        </span>
+            </div>
+            <div class="views-field views-field-nothing">
+        <span class="field-content">
+            <a href="{{ path('BashBashBundle_post', { 'id': quote.id }) }}">
+
+                #{{ quote.id }}
+
+            </a>
+        </span>
+            </div>
+            <div class="views-field views-field-body">
+                <div class="field-content">
+                    <p>
+
+                        {{ quote.subject }}
+
+                    </p>
+                </div>
+            </div>
+            <div class="views-field views-field-field-image">
+                <div class="field-content">
+                    {% if quote.imageName %}
+                        <a class="colorbox" href="/task/web/images/products/{{ quote.imageName }}"><img  src="/task/web/images/products/{{ quote.imageName }}" width="220"></a>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+    {% endfor %}
+{% endblock %}

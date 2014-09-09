@@ -1,0 +1,227 @@
+# src/Bash/BashBundle/Resources/config/routing.yml
+BashBashBundle_recent3:
+    pattern:  /
+    defaults: { _controller: BashBashBundle:Page:recent, id: 1 }
+    requirements:
+        _method:  GET
+        id: \d+
+
+BashBashBundle_recent:
+    pattern:  /recent/{id}
+    defaults: { _controller: BashBashBundle:Page:recent, id: 1 }
+    requirements:
+        _method:  GET
+        id: \d+
+
+BashBashBundle_recent1:
+    pattern:  /recent
+    defaults: { _controller: BashBashBundle:Page:recent, id: 1 }
+    requirements:
+        _method:  GET
+        id: \d+
+
+BashBashBundle_recent2:
+    pattern:  /recent/
+    defaults: { _controller: BashBashBundle:Page:recent, id: 1 }
+    requirements:
+        _method:  GET
+        id: \d+
+
+BashBashBundle_best:
+    pattern:  /best
+    defaults: { _controller: BashBashBundle:Page:best }
+    requirements:
+        _method:  GET
+
+BashBashBundle_rss:
+    pattern:  /rss
+    defaults: { _controller: BashBashBundle:Page:rss }
+    requirements:
+        _method:  POST|GET
+
+BashBashBundle_random:
+    pattern:  /random
+    defaults: { _controller: BashBashBundle:Page:random }
+    requirements:
+        _method:  GET
+
+BashBashBundle_govnokod:
+    pattern:  /govnokod
+    defaults: { _controller: BashBashBundle:Page:govnokod, id: 1 }
+    requirements:
+        _method:  GET
+        id: \d+
+BashBashBundle_govnokod1:
+    pattern:  /govnokod/{id}
+    defaults: { _controller: BashBashBundle:Page:govnokod, id: 1 }
+    requirements:
+        _method:  GET
+        id: \d+
+
+BashBashBundle_govnokod2:
+    pattern:  /govnokod/
+    defaults: { _controller: BashBashBundle:Page:govnokod, id: 1 }
+    requirements:
+        _method:  GET
+        id: \d+
+
+BashBashBundle_addquote:
+    pattern:  /add_quote
+    defaults: { _controller: BashBashBundle:Page:addquote }
+    requirements:
+        _method:  POST|GET
+
+BashBashBundle_addcode:
+    pattern:  /add_code
+    defaults: { _controller: BashBashBundle:Page:addcode }
+    requirements:
+        _method:  GET
+
+BashBashBundle_myquotes:
+    pattern:  /myquotes
+    defaults: { _controller: BashBashBundle:Page:myquotes }
+    requirements:
+        _method:  GET
+
+BashBashBundle_post:
+    pattern:  /node/{id}
+    defaults: { _controller: BashBashBundle:Page:post }
+    requirements:
+        _method:  POST|GET
+        id: \d+
+
+
+BashBashBundle_comment_create:
+    pattern:  /comment/{id}
+    defaults: { _controller: BashBashBundle:Comment:create }
+    requirements:
+        _method:  POST|GET
+        blog_id: \d+
+
+BashBashBundle_quote_create:
+    pattern:  /quote/{id}
+    defaults: { _controller: BashBashBundle:Quote:create }
+    requirements:
+        _method:  POST|GET
+        blog_id: \d+
+
+
+BashBashBundle_aquotes:
+    pattern:  /quotes/{author}
+    defaults: { _controller: BashBashBundle:Quote:aquotes }
+    requirements:
+        _method:  POST|GET
+
+BashBashBundle_user:
+    pattern:  /user/{user}
+    defaults: { _controller: BashBashBundle:Page:user }
+    requirements:
+        _method:  POST|GET
+
+
+BashBashBundle_edit:
+    pattern:  /edit/{id}
+    defaults: { _controller: BashBashBundle:Page:edit }
+    requirements:
+        id:  \d+
+
+
+BashBashBundle_dell:
+    pattern:  /dell/{id}
+    defaults: { _controller: BashBashBundle:Page:dell }
+    requirements:
+        id:  \d+
+
+
+BashBashBundle_aquotes:
+    pattern:  /myquotes
+    defaults: { _controller: BashBashBundle:Quote:myquotes }
+    requirements:
+        _method:  POST|GET
+
+BashBashBundle_up:
+    pattern:  /up/
+    defaults: { _controller: BashNodesBundle:Test:index }
+    requirements:
+        _method:  POST|GET
+
+BashBashBundle_test:
+    pattern:  /test
+    defaults: { _controller: BashNodesBundle:Test:test }
+    requirements:
+        _method:  POST|GET
+
+BashBashBundle_vote:
+    pattern:  /vote/{quote}/{value}/{from}
+    defaults: { _controller: BashBashBundle:Vote:vote }
+    requirements:
+        _method:  POST|GET
+
+
+BashBashBundle_result:
+    pattern:  /voting_result/{id}
+    defaults: { _controller: BashBashBundle:Page:result }
+    requirements:
+        id:  \d+
+
+
+
+
+
+BashBashBundle_codepost:
+    pattern:  /code/{id}
+    defaults: { _controller: BashBashBundle:Page:codepost }
+    requirements:
+        _method:  POST|GET
+        id: \d+
+
+
+BashBashBundle_codeComment_create:
+    pattern:  /ccomment/{id}
+    defaults: { _controller: BashBashBundle:CodeComment:create }
+    requirements:
+        _method:  POST|GET
+        blog_id: \d+
+
+BashBashBundle_code_create:
+    pattern:  /createcode/{id}
+    defaults: { _controller: BashBashBundle:Code:create }
+    requirements:
+        _method:  POST|GET
+        blog_id: \d+
+
+
+
+
+BashBashBundle_codeedit:
+    pattern:  /cedit/{id}
+    defaults: { _controller: BashBashBundle:Code:edit }
+    requirements:
+        id:  \d+
+
+
+BashBashBundle_codedell:
+    pattern:  /cdell/{id}
+    defaults: { _controller: BashBashBundle:Code:dell }
+    requirements:
+        id:  \d+
+
+
+
+BashBashBundle_cvote:
+    pattern:  /cvote/{quote}/{value}/{from}
+    defaults: { _controller: BashBashBundle:CVote:vote }
+    requirements:
+        _method:  POST|GET
+
+
+BashBashBundle_coderesult:
+    pattern:  /cvoting_result/{id}
+    defaults: { _controller: BashBashBundle:Page:coderesult }
+    requirements:
+        id:  \d+
+
+
+
+
+

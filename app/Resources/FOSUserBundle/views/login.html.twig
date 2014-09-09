@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML+RDFa 1.0//EN"
+        "http://www.w3.org/MarkUp/DTD/xhtml-rdfa-1.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="uk" version="XHTML+RDFa 1.0" dir="ltr">
+
+<head profile="http://www.w3.org/1999/xhtml/vocab">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/vnd.microsoft.icon" />
+    <meta name="Generator" content="Drupal 7 (http://drupal.org)" />
+    <title>Access denied | bash.drupalcompany.com</title>
+
+    <link href="{{ asset('css/framework/reset.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/framework/960.css') }}" type="text/css" rel="stylesheet"   />
+    <link href="{{ asset('css/system.theme.css') }}" type="text/css" rel="stylesheet"    />
+    <link href="{{ asset('css/system.messages.css') }}" type="text/css" rel="stylesheet" />
+    <link href="{{ asset('css/system.menus.css') }}" type="text/css" rel="stylesheet"    />
+    <link href="{{ asset('css/system.base.css') }}" type="text/css" rel="stylesheet"     />
+    <link href="{{ asset('css/rate.css') }}" type="text/css" rel="stylesheet"            />
+    <link href="{{ asset('css/number-up-down.css') }}" type="text/css" rel="stylesheet"  />
+</head>
+<body class="html front not-logged-in no-sidebars page-quotes show-grid" >
+<div id="skip-link">
+    <a href="#main-content" class="element-invisible element-focusable">Skip to main content</a>
+</div>
+<div id="site-header" class="clearfix">
+    <div class="container-16">
+        <div id="branding" class="grid-4 clearfix">
+            <span id="logo" class="grid-1 alpha"><a href="{{ path('BashBashBundle_recent', { 'id': 1 }) }}" rel="home" title="Home" class="active"><img src="{{ asset('logo_bash_0.png') }}" alt="Home" title="Home" /></a></span>
+        </div>
+
+    </div>
+</div>
+<div id="page" class="container-16 clearfix">
+    <div id="site-subheader" class="prefix-1 suffix-1 clearfix">
+    </div>
+
+
+    <div id="main" class="column">
+        <h1 class="title" id="page-title">Access denied</h1>
+
+        <div class="tabs"></div>
+
+        <div id="main-content" class="region clearfix">
+            <div class="region region-content">
+                <div id="block-system-main" class="block block-system">
+
+
+                    <div class="content">
+                        You are not authorized to access this page.  </div>
+                </div>
+                <div id="block-internetdevels-google-oauth-internetdevels-google-oauth" class="block block-internetdevels-google-oauth">
+
+
+                    <div class="content">
+                        <a href="{{ path('fos_user_registration_register') }}" class="google-login-link">Registration</a>  </div>
+                    <div>
+                        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                            {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                            <a href="{{ path('fos_user_security_logout') }}">
+                                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                            </a>
+                        {% else %}
+                            <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                        {% endif %}
+                    </div>
+
+                    {% for type, messages in app.session.flashBag.all %}
+                        {% for message in messages %}
+                            <div class="{{ type }}">
+                                {{ message|trans({}, 'FOSUserBundle') }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+
+                    <div>
+                        {% block fos_user_content %}
+                        {% endblock fos_user_content %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div id="footer" class="prefix-1 suffix-1">
+    </div>
+</div>
+</div>
+</body>
+</html>

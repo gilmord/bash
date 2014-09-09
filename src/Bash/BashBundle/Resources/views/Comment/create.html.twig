@@ -1,0 +1,7 @@
+{% extends '::base.html.twig' %}
+
+
+{% block add %}
+    <h1>Add comment for blog post "{{ comment.blog.title }}"</h1>
+    {% include 'BashBashBundle:Comment:form.html.twig' with { 'form': form } %}
+{% endblock %}

@@ -1,0 +1,25 @@
+{% for quote in quotes %}
+    <entry>
+        <title>{{ quote.id }}</title>
+        <link href="{{ path('BashBashBundle_post', { 'id': quote.id }) }}"/>
+        <id>{{ quote.id }}</id>
+        <updated> {{ quote.date|date('Y-m-d H:i') }}</updated>
+        <summary type="xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml">
+                {% if quote.photos.path %}
+                    <div>
+                        <a href="{{ path('BashBashBundle_post', { 'id': quote.id }) }}">
+                            <img  src="/task/web{{ quote.photos.path }}">
+                        </a>
+                    </div>
+                {% endif %}
+                <div>
+
+                </div>
+                <h4></h4>
+                <p></p>
+            </div>
+        </summary>
+        <author><name>{{ quote.author }}</name></author>
+    </entry>
+{% endfor %}

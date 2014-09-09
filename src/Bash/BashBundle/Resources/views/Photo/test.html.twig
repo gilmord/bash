@@ -1,0 +1,109 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Qoute
+{% endblock %}
+
+{% block h1 %}
+
+
+{% endblock %}
+
+
+{% block menu %}
+    <ul class="menu">
+        <li class="first leaf rss"><a
+                    href="/bash.rss?token=WJieXgVAbka5rreCz9pd" title="">rss</a>
+        </li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_recent', { 'id': 1 }) }}">recent</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_best') }}">best</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_random') }}">random</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_govnokod') }}">govnokod</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addquote') }}">add quote</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addcode') }}">add code</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_myquotes') }}">my quotes</a></li>
+        <li class="last leaf"><a href="{{ path('fos_user_security_logout') }}">log out</a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+
+
+
+{% block content %}
+
+
+
+
+    <div id="node-179" class="node node-quote clearfix">
+
+    <div class="submitted">
+
+
+
+
+
+    </div>
+    <div class="content">
+        <div id="rate-node-179-1-3"
+             class="rate-widget-1 rate-widget clear-block rate-average rate-widg…e-9_phLrr7NVXFMouZITX0t-0JxNJMS1Jz_4IckdCuUy4 rate-processed">
+            <span id="rate-button-3" class="rate-button rate-number-up-down-btn-up">
+
+                +
+
+            </span>
+
+            <div class="rate-number-up-down-rating neutral">
+
+                0
+
+            </div>
+            <span id="rate-button-4" class="rate-button rate-number-up-down-btn-down">
+
+                -
+
+            </span>
+        </div>
+        <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+            <div class="field-items">
+                <div class="field-item even">
+                    <p>
+
+
+
+                    <div class="views-field views-field-field-image">
+                        <div class="field-content">
+
+                        </div>
+
+                    </div>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="field field-name-field-image field-type-image field-label-hidden">
+
+        <div class="field-items">
+            <div class="field-item even">
+                {% for test in tests %}
+                    <img src="/task/web/{{ test.photos.path }}">
+                    {% endfor %}
+
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

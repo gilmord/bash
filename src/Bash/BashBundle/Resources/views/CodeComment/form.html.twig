@@ -1,0 +1,13 @@
+
+
+<form action="{{ path('BashBashBundle_codeComment_create', { 'id' : comment.blogid.id } ) }}" method="post" {{ form_enctype(form) }} >
+    {{ form_widget(form.comment) }}
+    {{ form_rest(form) }}
+    <p>
+    <div id="edit-actions" class="form-actions form-wrapper">
+
+        <input id="edit-submit" class="form-submit" type="submit" value="Save" name="op">
+
+    </div>
+    </p>
+</form>

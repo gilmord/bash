@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Add quote
+{% endblock %}
+
+{% block h1 %}
+
+        Create Quote
+
+{% endblock %}
+
+
+
+{% block menu %}
+    <ul class="menu">
+        <li class="first leaf rss"><a href="{{ path('BashBashBundle_rss') }}" title="">rss</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_recent', { 'id': 1 }) }}">recent</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_best') }}">best</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_random') }}">random</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_govnokod') }}">govnokod</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addquote') }}" class="active">add quote</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addcode') }}">add code</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_myquotes') }}">my quotes</a></li>
+        <li class="last leaf"><a href="{{ path('fos_user_security_logout') }}">log out</a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+    {{ render(controller( 'BashBashBundle:Quote:new')) }}
+{% endblock %}

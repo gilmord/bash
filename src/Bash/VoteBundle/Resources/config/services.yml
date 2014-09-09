@@ -1,0 +1,7 @@
+parameters:
+#    bash_vote.example.class: Bash\VoteBundle\Example
+
+services:
+#    bash_vote.example:
+#        class: %bash_vote.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

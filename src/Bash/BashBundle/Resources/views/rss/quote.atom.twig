@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<rss version="2.0">
+    <channel>
+        <title>Quotes</title>
+        <description>Latests articles</description>
+        <link>http://localhost/task/web/app_dev.php/recent/</link>
+
+        <lastBuildDate>{{"now"|date('Y-m-d')  }}</lastBuildDate>
+
+        {% for quote in quotes %}
+
+        <item>
+            <title>{{ quote.author }}</title>
+            <description>{{ quote.subject }}</description>
+
+            <pubDate>{{ quote.date | date ('Y-m-d') }}</pubDate>
+        </item>
+        {% endfor %}
+
+    </channel>
+</rss>

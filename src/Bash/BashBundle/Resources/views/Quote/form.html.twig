@@ -1,0 +1,19 @@
+
+
+<form action="{{ path('BashBashBundle_quote_create', { 'id' : '0' } ) }}" method="post" {{ form_enctype(form) }} >
+    {{ form_errors(form) }}
+    {{ form_widget(form.subject) }}
+
+
+    <p>
+        <div>     </div>
+
+    <div id="edit-actions" class="form-actions form-wrapper">
+        {{ form_widget(form.imageFile) }}
+    <input id="edit-submit" class="form-submit" formnovalidate="true" type="submit" value="Save" name="op" >
+
+
+    </div>
+
+    {{ form_rest(form) }}
+</form>

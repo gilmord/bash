@@ -1,0 +1,52 @@
+<?php
+
+namespace Bash\NodesBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Iphp\FileStoreBundle\Mapping\Annotation as FileStore;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @FileStore\Uploadable
+ * @ORM\Entity(repositoryClass="Bash\NodesBundle\Entity\Repository\PhotoRepository")
+ * @ORM\Table(name="photo")
+ * @ORM\HasLifecycleCallbacks
+ */
+class Photo
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $title;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Quote", inversedBy="comments")
+     * @ORM\JoinColumn(name="blog_id", referencedColumnName="id", onDelete="SET NULL")
+     */
+    protected $blog_id;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * @Assert\File( maxSize="20M")
+     * @FileStore\UploadableField(mapping="photo")
+     * @ORM\Column(type="array")
+     **/
+    protected $photo;
+
+
+
+   
+}

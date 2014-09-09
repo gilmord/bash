@@ -1,0 +1,100 @@
+{% extends 'BashBashBundle:Page:post.html.twig' %}
+
+{% block title %}
+    Edit quote
+{% endblock %}
+
+{% block h1 %}
+
+{% endblock %}
+
+
+{% block menu %}
+    <ul class="menu">
+        <li class="first leaf rss"><a
+                    href="/bash.rss?token=WJieXgVAbka5rreCz9pd" title="">rss</a>
+        </li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_recent', { 'id': 1 }) }}">recent</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_best') }}">best</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_random') }}">random</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_govnokod') }}">govnokod</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addquote') }}">add quote</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addcode') }}">add code</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_myquotes') }}">my quotes</a></li>
+        <li class="last leaf"><a href="{{ path('fos_user_security_logout') }}">log out</a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+    {% if (user == 'adminuser') or (user == quote.author) %}
+        <div class="tabs">
+
+            <h2 class="element-invisible"></h2>
+            <ul class="tabs primary">
+                <li >
+                    <a  href="{{ path('BashBashBundle_post', { 'id': quote.id }) }}">
+
+                        View
+
+
+                    </a>
+                </li>
+                <li class="active">
+                    <a class="active" href="{{ path('BashBashBundle_edit', { 'id': quote.id }) }}">
+
+                        Edit
+                          <span class="element-invisible">
+
+                    (active tab)
+
+                </span>
+
+                    </a>
+                </li>
+                <li>
+                    <a  href="{{ path('BashBashBundle_dell', { 'id': quote.id }) }}">
+
+                        Delete
+
+                    </a>
+                </li>
+                <li>
+                    <a  href="{{ path('BashBashBundle_result', { 'id': quote.id }) }}">
+
+                        Voting results
+
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <form action="{{ path('BashBashBundle_edit', { 'id' : id } ) }}"
+              method="post"
+            {{ form_enctype(form) }} >
+            {{ form_widget(form.subject) }}
+            {{ form_widget(form.imageFile) }}
+            {{ form_rest(form) }}
+            <p>
+            <div id="edit-actions" class="form-actions form-wrapper">
+
+                <input id="edit-submit" class="form-submit" type="submit" value="Save" name="op">
+
+
+            </div>
+            </p>
+        </form>
+
+
+
+
+
+
+    {% else %}
+        You have no rights to edit this post!
+    {% endif %}
+{% endblock %}

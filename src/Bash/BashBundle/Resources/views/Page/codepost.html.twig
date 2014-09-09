@@ -1,0 +1,280 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block h1 %}
+
+    <script src="{{ asset(' js/tinymce/jscripts/tiny_mce/tiny_mce.js') }}" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        tinyMCE.init({
+            mode:"textareas",
+            theme:"simple"
+        });
+
+    </script>
+{% endblock %}
+
+
+{% block menu %}
+    <ul class="menu">
+        <li class="first leaf rss"><a href="{{ path('BashBashBundle_rss') }}" title="">rss</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_recent', { 'id': 1 }) }}">recent</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_best') }}">best</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_random') }}">random</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_govnokod') }}">govnokod</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addquote') }}">add quote</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_addcode') }}">add code</a></li>
+        <li class="leaf"><a href="{{ path('BashBashBundle_myquotes') }}">my quotes</a></li>
+        <li class="last leaf"><a href="{{ path('fos_user_security_logout') }}">log out</a>
+        </li>
+    </ul>
+{% endblock %}
+
+
+
+{% block content %}
+
+    {%   if (you_are == 'adminuser') or (you_are == quote.author ) %}
+
+        <div class="tabs">
+
+            <h2 class="element-invisible"></h2>
+            <ul class="tabs primary">
+                <li class="active">
+                    <a class="active" href="{{ path('BashBashBundle_codepost', { 'id': quote.id }) }}">
+
+                        View
+
+                <span class="element-invisible">
+
+                    (active tab)
+
+                </span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="{{ path('BashBashBundle_codeedit', { 'id': quote.id }) }}">
+
+                        Edit
+
+                    </a>
+                </li>
+                <li>
+                    <a  href="{{ path('BashBashBundle_codedell', { 'id': quote.id }) }}">
+
+                        Delete
+
+                    </a>
+                </li>
+                <li>
+                    <a  href="{{ path('BashBashBundle_coderesult', { 'id': quote.id }) }}">
+
+                        Voting results
+
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    {% endif %}
+
+
+    <div id="node-179" class="node node-quote clearfix">
+
+    <div class="submitted">
+
+
+        Submitted by
+
+        <a href="{{ path('BashBashBundle_user', { 'user': quote.author }) }}">
+
+            {{ quote.author }}
+
+        </a>
+
+        on  {{ quote.date|date('Y-m-d H:i') }}
+
+
+    </div>
+    <div class="content">
+        <div id="rate-node-179-1-3"
+             class="rate-widget-1 rate-widget clear-block rate-average rate-widg…e-9_phLrr7NVXFMouZITX0t-0JxNJMS1Jz_4IckdCuUy4 rate-processed">
+
+
+            <a href="{{ path('BashBashBundle_cvote', { 'quote': quote.id, 'value': 1, 'from': 'post' }) }}"><span id="vote" class="rate-button rate-number-up-down-btn-up">+</span></a>
+
+
+
+            <div class="rate-number-up-down-rating neutral">
+
+                {{ rate }}
+
+            </div>
+            <a href="{{ path('BashBashBundle_cvote', { 'quote': quote.id, 'value': -1, 'from': 'post' }) }}"><span id="vote" class="rate-button rate-number-up-down-btn-up">-</span></a>
+        </div>
+        <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+            <div class="field-items">
+                <div class="field-item even">
+                    <p>
+
+                        {{ quote.subject }}
+
+                    <div class="views-field views-field-field-image">
+                        <div class="field-content">
+
+                        </div>
+
+                    </div>
+
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    {% if quote.imageName %}
+        <div class="field field-name-field-image field-type-image field-label-hidden">
+
+            <div class="field-items">
+                <div class="field-item even">
+
+                    <a class="colorbox" href="/task/web/images/products/{{ quote.imageName }}"><img  src="/task/web/images/products/{{ quote.imageName }}" width="220"></a>
+
+
+
+                </div>
+            </div>
+
+        </div>
+    {% endif %}
+    <ul class="links inline">
+
+        <li class="comment-add first last active">
+            <a class="active" title="Share your thoughts and opinions related to this posting." href="#top">
+
+                Add new comment
+
+            </a>
+        </li>
+
+    </ul>
+
+    <div id="comments" class="comment-wrapper">
+
+    {% if (comment) %}
+        <h2 class="title">Comments</h2>
+    {% endif %}
+
+
+
+
+    {% block comment %}
+
+        {% for comments in comment %}
+
+            <div class="comment clearfix">
+
+            <div class="submitted">
+
+
+                Submitted by
+
+                <a class="username" title="View user profile." href="/bash/user/98">
+
+                    {{ comments.user }}
+
+                </a>
+
+                on {{ comments.created|date('Y-m-d H:i') }}
+
+            </div>
+            <div class="content">
+                <div class="field field-name-comment-body field-type-text-long field-label-hidden">
+                    <div class="field-items">
+                        <div class="field-item even">
+                            <p>
+
+                                {{ comments.comment }}
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {%   if (you_are == 'йцу') %}
+                {% block editkeys %}
+                    <ul class="links inline">
+                        <li class="comment-delete first">
+                            <a href="/bash/comment/87/delete">
+
+                                delete
+
+                            </a>
+                        </li>
+                        <li class="comment-edit">
+                            <a href="/bash/comment/87/edit">
+
+                                edit
+
+                            </a>
+                        </li>
+                        <li class="comment-reply last">
+                            <a href="/bash/comment/reply/167/87">
+
+                                reply
+
+                            </a>
+                        </li>
+                    </ul>
+                    </div>
+                {% endblock %}
+            {% endif %}
+
+        {% endfor %}
+    {% endblock %}
+
+
+
+
+
+    <h2 class="title comment-form">
+
+        Add new comment
+
+    </h2>
+    <p><a name="top"></a></p>
+
+
+    <form id="comment-form" class="comment-form" accept-charset="UTF-8" method="post"
+          action="/bash/comment/reply/179">
+        <div>
+            <div id="edit-author--2" class="form-item form-type-item">
+                <label for="edit-author--2">
+
+                    Your name
+
+                </label>
+                <a class="username" title="View user profile."
+                   href="{{ path('BashBashBundle_user', { 'user': you_are }) }}">
+
+                    {{ you_are }}
+
+                </a>
+            </div>
+
+
+            <div id="edit-actions" class="form-actions form-wrapper">
+
+            </div>
+        </div>
+    </form>
+    {{ render(controller( 'BashBashBundle:CodeComment:new', { 'id': quote.id  } )) }}
+
+
+
+{% endblock %}

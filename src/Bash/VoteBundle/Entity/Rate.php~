@@ -1,0 +1,101 @@
+<?php
+// src/MyProject/MyBundle/Entity/Rating.php
+
+namespace Bash\VoteBundle\Entity;
+
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="rating_quote")
+ * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
+ */
+class Rate
+{
+
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Bash\NodesBundle\Entity\Quote", inversedBy="rating")
+     */
+    protected $quote;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    protected $rating;
+
+
+
+
+
+    public function __construct()
+    {
+        $this->rating = 0;
+    }
+
+
+ 
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set rating
+     *
+     * @param integer $rating
+     * @return Rate
+     */
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
+
+        return $this;
+    }
+
+    /**
+     * Get rating
+     *
+     * @return integer 
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    /**
+     * Set quote
+     *
+     * @param \Bash\NodesBundle\Entity\Quote $quote
+     * @return Rate
+     */
+    public function setQuote(\Bash\NodesBundle\Entity\Quote $quote = null)
+    {
+        $this->quote = $quote;
+
+        return $this;
+    }
+
+    /**
+     * Get quote
+     *
+     * @return \Bash\NodesBundle\Entity\Quote 
+     */
+    public function getQuote()
+    {
+        return $this->quote;
+    }
+}
